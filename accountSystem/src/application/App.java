@@ -1,0 +1,70 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import entities.Account;
+import entities.BusinessAccount;
+import entities.SavingsAccount;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        List<Account> list = new ArrayList<>();
+
+        System.out.print("Enter the number of accounts: ");
+        int na = sc.nextInt();
+
+        for(int i =1; i<=na; i++){
+            System.out.println("Account #" + i);
+
+            System.out.print("Enter the holder name: ");
+            sc.next();
+            String holderName = sc.nextLine();
+
+            System.out.print("Enter the number account: ");
+            int numberAccount = sc.nextInt();
+
+            System.out.print("Enter the initial balance: ");
+            double balance = sc.nextDouble();
+
+            String accountType;
+            
+            System.out.print("What type of account is it? Current account(cc) Savings account(sa) or Business account(ba)  ");
+            accountType = sc.next();
+
+            if(accountType.equalsIgnoreCase("sa")){
+                System.out.print("Enter the Interest Rate: ");
+                double interestRate = sc.nextDouble();
+                list.add(new SavingsAccount(numberAccount, holderName, balance, interestRate));
+            } else if(accountType.equalsIgnoreCase("ba")){
+                System.out.print("Enter the Loan Limit: ");
+                double loanLimit = sc.nextDouble();
+                list.add(new BusinessAccount(numberAccount, holderName, balance, loanLimit));
+            } else if(accountType.equalsIgnoreCase("cc")){
+                list.add(new Account(numberAccount, holderName, balance));
+            }
+
+            System.out.println();
+        }
+
+        System.out.println("\n\n\n");
+        
+
+        for(Account account : list){
+            System.out.println(account.toString() + "\n");
+        }
+
+        System.out.print("Select an account, using the Number account: ");
+        int numberAccount = sc.nextInt();
+
+        for(Account account : list){
+            if(numberAccount == account.getNUmberAccount()){
+                
+            }
+        }
+
+        sc.close();
+    }
+}

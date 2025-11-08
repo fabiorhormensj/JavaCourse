@@ -9,8 +9,8 @@ public class Account {
         
     }
     
-    public Account(int numberAcount, String holder, double balance){
-        this.numberAccount = numberAcount;
+    public Account(int numberAccount, String holder, double balance){
+        this.numberAccount = numberAccount;
         this.holder = holder;
         this.balance = balance;
     }
@@ -40,6 +40,8 @@ public class Account {
         return "Number Account: " +
                 getNUmberAccount() +
                  "\nHolder: " +
-                getHolder();
+                getHolder() +
+                "\nBalance: " +
+                getBalance();
     }
 }

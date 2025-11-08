@@ -16,6 +16,7 @@ public class App {
         System.out.print("Enter the number of accounts: ");
         int na = sc.nextInt();
 
+        // Collects account information
         for(int i =1; i<=na; i++){
             System.out.println("Account #" + i);
 
@@ -34,6 +35,7 @@ public class App {
             System.out.print("What type of account is it? Current account(cc) Savings account(sa) or Business account(ba)  ");
             accountType = sc.next();
 
+            // Add objects to the list
             if(accountType.equalsIgnoreCase("sa")){
                 System.out.print("Enter the Interest Rate: ");
                 double interestRate = sc.nextDouble();
@@ -50,10 +52,10 @@ public class App {
         }
 
         System.out.println("\n\n\n");
-        
+
 
         for(Account account : list){
-            System.out.println(account.toString() + "\n");
+            System.out.println(account.toString() + "\n\n\n");
         }
 
         System.out.print("Select an account, using the Number account: ");
@@ -61,7 +63,7 @@ public class App {
 
         for(Account account : list){
             if(numberAccount == account.getNUmberAccount()){
-                
+                System.out.print(account.toString());
             }
         }
 

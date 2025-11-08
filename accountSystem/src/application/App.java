@@ -31,22 +31,24 @@ public class App {
             System.out.print("Enter the initial balance: ");
             double balance = sc.nextDouble();
 
-            String accountType;
+            System.out.print("Account type (CC / SA / BA): ");
+            String input = sc.next().toUpperCase();
 
-            System.out.print("What type of account is it? Current account(cc) Savings account(sa) or Business account(ba)  ");
-            accountType = sc.next();
+            AccountType type = AccountType.valueOf(input);
 
             // Add objects to the list
-            if (accountType.equalsIgnoreCase("sa")) {
-                System.out.print("Enter the Interest Rate: ");
-                double interestRate = sc.nextDouble();
-                list.add(new SavingsAccount(numberAccount, holderName, balance, AccountType.SA, interestRate));
-            } else if (accountType.equalsIgnoreCase("ba")) {
-                System.out.print("Enter the Loan Limit: ");
-                double loanLimit = sc.nextDouble();
-                list.add(new BusinessAccount(numberAccount, holderName, balance, AccountType.BA, loanLimit));
-            } else if (accountType.equalsIgnoreCase("cc")) {
-                list.add(new Account(numberAccount, holderName, balance, AccountType.CC));
+            switch (type) {
+                case SA -> {
+                    System.out.print("Enter the Interest Rate: ");
+                    double interestRate = sc.nextDouble();
+                    list.add(new SavingsAccount(numberAccount, holderName, balance, type, interestRate));
+                }
+                case BA -> {
+                    System.out.print("Enter the Loan Limit: ");
+                    double loanLimit = sc.nextDouble();
+                    list.add(new BusinessAccount(numberAccount, holderName, balance, type, loanLimit));
+                }
+                case CC -> list.add(new Account(numberAccount, holderName, balance, type));
             }
 
             System.out.println();

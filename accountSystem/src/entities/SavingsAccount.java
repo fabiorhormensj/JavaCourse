@@ -1,10 +1,12 @@
 package entities;
 
+import entities.enums.AccountType;
+
 public class SavingsAccount extends Account{
     private final double interestRate;
 
-    public SavingsAccount(int numberAccount, String holder, double balance, double interestRate){
-        super(numberAccount,holder,balance);
+    public SavingsAccount(int numberAccount, String holder, double balance, AccountType accountType, double interestRate) {
+        super(numberAccount, holder, balance, accountType);
         this.interestRate = interestRate;
     }
 
@@ -13,7 +15,7 @@ public class SavingsAccount extends Account{
     }
 
     public void updateBalance(){
-        balance += balance * interestRate;
+        balance = balance * interestRate;
     }
 
     @Override
@@ -27,6 +29,8 @@ public class SavingsAccount extends Account{
                 getNUmberAccount() +
                  "\nHolder: " +
                 getHolder() +
+                "\nAccount Type: " +
+                getAccountType() +
                 "\nBalance: " +
                 getBalance() +
                 "\nInterest Rate: " +

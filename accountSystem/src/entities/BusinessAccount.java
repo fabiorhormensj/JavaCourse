@@ -1,12 +1,14 @@
 package entities;
 
 
+import entities.enums.AccountType;
+
 public class BusinessAccount extends Account {
 
     private final double loanLimit;
-    
-    public BusinessAccount(int numberAccount, String holder, double balance, double loanLimit){
-        super(numberAccount,holder,balance);
+
+    public BusinessAccount(int numberAccount, String holder, double balance, AccountType accountType, double loanLimit) {
+        super(numberAccount, holder, balance, accountType);
         this.loanLimit = loanLimit;
     }
 
@@ -26,6 +28,8 @@ public class BusinessAccount extends Account {
                 getNUmberAccount() +
                  "\nHolder: " +
                 getHolder() +
+                "\nAccount Type: " +
+                getAccountType() +
                 "\nBalance: " +
                 getBalance() +
                 "\nLoan Limit: " +

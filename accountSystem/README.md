@@ -4,3 +4,4 @@ This project uses the following POO concepts:
 * Composition
 * Lists
 * Overload
+* Upcasting and downcasting

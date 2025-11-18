@@ -3,9 +3,9 @@ package model.entities;
 import java.time.LocalDateTime;
 
 public class CarRental {
-    private LocalDateTime start;
-    private LocalDateTime finish;
-    private Vehicle vehicle;
+    private final LocalDateTime start;
+    private final LocalDateTime finish;
+    private final Vehicle vehicle;
     private Invoice invoice;
 
     public CarRental(LocalDateTime start, LocalDateTime finish, Vehicle vehicle) {
@@ -28,5 +28,9 @@ public class CarRental {
 
     public Invoice getInvoice() {
         return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 }

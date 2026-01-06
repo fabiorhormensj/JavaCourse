@@ -18,7 +18,8 @@ public class Main {
             preparedStatement = connection.prepareStatement(
                     "INSERT INTO seller "
                     + "(Name, Email, BirthDate, BaseSalary, DepartmentId)"
-                    + "VALUES (?, ?, ?, ?, ?)"
+                    + "VALUES (?, ?, ?, ?, ?)",
+                    Statement.RETURN_GENERATED_KEYS
             );
             preparedStatement.setString(1, "Carl Purple");
             preparedStatement.setString(2, "carl.purple@gmail.com");
@@ -27,6 +28,16 @@ public class Main {
             preparedStatement.setInt(5, 2);
 
             int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                ResultSet rs = preparedStatement.getGeneratedKeys();
+                while (rs.next()) {
+                    int id = rs.getInt(1);
+                    System.out.println("Id = " + id);
+                }
+            } else {
+                System.out.println("No data found");
+            }
 
             System.out.println("rows affected: " + rowsAffected);
 

@@ -9,3 +9,5 @@ This repository will store the projects and activities from my Java course. Thes
 * Inheritance and polymorphism
 * Exceptions
 * Interfaces
+
+In addition, I used JDBC, JPA, and Hibernate in some activities.
